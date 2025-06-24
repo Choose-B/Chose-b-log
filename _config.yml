@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: B-log
 subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
+description: '欢迎来到B的个人博客'
+keywords: blogs
+author: B
+language: zh-cn
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://chose-b-log.netlify.app
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
