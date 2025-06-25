@@ -481,17 +481,17 @@ post:
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus | discuss
-    type: waline
+    type: giscus
 
 # Giscus
 # 基于 GitHub Discussions，类似于 Utterances
 # Based on GitHub Discussions, similar to Utterances
 # See: https://giscus.app/
 giscus:
-  repo:
-  repo-id:
-  category:
-  category-id:
+  repo: 'Choose-b/Chose-b-log'
+  repo-id: "R_kgDOPA7zQA"
+  category: "Announcements"
+  category-id: "DIC_kwDOPA7zQM4Cr_Im"
   theme-light: light
   theme-dark: dark
   mapping: pathname
