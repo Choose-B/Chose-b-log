@@ -110,12 +110,9 @@ navbar:
     - { 
         key: 'tag', 
         link: '/tags/', 
-        icon: 'iconfont icon-tags-fill',
-        submenu: [
-          { key: '笔记' },
-          { key: '卢关中学' }
-        ]
+        icon: 'iconfont icon-tags-fill'
     }
+    - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: 'about', link: '/about', icon: iconfont icon-user-fill}
     - { key: 'links', link: '/links/', icon: 'iconfont icon-link-fill' }
 
@@ -149,18 +146,11 @@ code:
     lib: "highlightjs"
     highlightjs:
       style: 'Github Gist'
+      style_dark: 'dark'
       bg_color: false
     prismjs:
       style: "default"
       preprocess: true
-
-post:
-  footnote:
-    enable: true
-  math:
-    enable: true
-    specific: true
-    engine: mathjax
 
 markdown:
   plugins:
@@ -171,7 +161,7 @@ about:
     - { class: 'iconfont icon-github-fill', link: 'https://github.com/Choose-B', tip: 'GitHub' }
     - { class: 'iconfont icon-bilibili-fill', link: 'https://space.bilibili.com/1526890818', tip: 'Bilibili'}
     - { class: 'iconfont icon-steam-fill', link: 'https://steamcommunity.com/id/Chose___B/', tip: 'Steam好友代码:1020224603'}
-    - { class: 'iconfont icon-wechat-fill', qrcode: './img/about/wechat friends qrcode.jpg'}
+    - { class: 'iconfont icon-wechat-fill', qrcode: '/img/about/wechat friends qrcode.jpg'}
     - { class: 'iconfont icon-qq-fill', tip: 'QQ: 3210208966'}
 
 links:
@@ -180,5 +170,332 @@ links:
       title: '博客友链',
       intro: 'STI_lz',
       link: 'https://sti-lz.github.io/',
-      avatar: './img/friendlink/STI-LZ.jpg'
+      avatar: '/img/friendlink/STI-LZ.jpg'
     }
+
+favicon: /img/icon.png
+
+apple_touch_icon: /img/icon.png
+
+# 主题颜色配置，其他不生效的地方请使用自定义 css 解决，配色可以在下方链接中获得启发
+# Theme color, please use custom CSS to solve other colors, color schema can be inspired by the links below
+# See: https://www.webdesignrankings.com/resources/lolcolors/
+color:
+  # body 背景色
+  # Color of body background
+  body_bg_color: "#eee"
+  # 暗色模式下的 body 背景色，下同
+  # Color in dark mode, the same below
+  body_bg_color_dark: "#181c27"
+
+  # 顶部菜单背景色
+  # Color of navigation bar background
+  navbar_bg_color: "#2f4154"
+  navbar_bg_color_dark: "#1f3144"
+
+  # 顶部菜单字体色
+  # Color of navigation bar text
+  navbar_text_color: "#fff"
+  navbar_text_color_dark: "#d0d0d0"
+
+  # 副标题字体色
+  # Color of subtitle text
+  subtitle_color: "#fff"
+  subtitle_color_dark: "#d0d0d0"
+
+  # 全局字体色
+  # Color of global text
+  text_color: "#3c4858"
+  text_color_dark: "#c4c6c9"
+
+  # 全局次级字体色（摘要、简介等位置）
+  # Color of global secondary text (excerpt, introduction, etc.)
+  sec_text_color: "#718096"
+  sec_text_color_dark: "#a7a9ad"
+
+  # 主面板背景色
+  # Color of main board
+  board_color: "#fff"
+  board_color_dark: "#252d38"
+
+  # 文章正文字体色
+  # Color of post text
+  post_text_color: "#2c3e50"
+  post_text_color_dark: "#c4c6c9"
+
+  # 文章正文字体色（h1 h2 h3...）
+  # Color of Article heading (h1 h2 h3...)
+  post_heading_color: "#1a202c"
+  post_heading_color_dark: "#c4c6c9"
+
+  # 文章超链接字体色
+  # Color of post link
+  post_link_color: "#0366d6"
+  post_link_color_dark: "#1589e9"
+
+  # 超链接悬浮时字体色
+  # Color of link when hovering
+  link_hover_color: "#30a9de"
+  link_hover_color_dark: "#30a9de"
+
+  # 超链接悬浮背景色
+  # Color of link background when hovering
+  link_hover_bg_color: "#f8f9fa"
+  link_hover_bg_color_dark: "#364151"
+
+  # 分隔线和表格边线的颜色
+  # Color of horizontal rule and table border
+  line_color: "#eaecef"
+  line_color_dark: "#435266"
+
+  # 滚动条颜色
+  # Color of scrollbar
+  scrollbar_color: "#c4c6c9"
+  scrollbar_color_dark: "#687582"
+  # 滚动条悬浮颜色
+  # Color of scrollbar when hovering
+  scrollbar_hover_color: "#a6a6a6"
+  scrollbar_hover_color_dark: "#9da8b3"
+
+  # 按钮背景色
+  # Color of button
+  button_bg_color: "transparent"
+  button_bg_color_dark: "transparent"
+  # 按钮悬浮背景色
+  # Color of button when hovering
+  button_hover_bg_color: "#f2f3f5"
+  button_hover_bg_color_dark: "#46647e"
+
+  # 国内大陆服务器的备案信息
+  # For Chinese mainland website policy, other areas keep disable
+  beian:
+    enable: false
+    # ICP证号
+    icp_text: 京ICP证123456号
+    # 公安备案号，不填则只显示ICP
+    police_text: 京公网安备12345678号
+    # 公安备案的编号，用于URL跳转查询
+    police_code: 12345678
+    # 公安备案的图片. 为空时不显示备案图片
+    police_icon: /img/police_beian.png
+
+#---------------------------
+# 文章页
+# Post Page
+#---------------------------
+post:
+  banner_img: /img/default.png
+  banner_img_height: 70
+  banner_mask_alpha: 0.3
+
+  # 文章在首页的默认封面图，当没有指定 index_img 时会使用该图片，若两者都为空则不显示任何图片
+  # Path of the default post cover when `index_img` is not set. If both are empty, no image will be displayed
+  default_index_img:
+
+  # 文章标题下方的元信息
+  # Meta information below title
+  meta:
+    # 作者，优先根据 front-matter 里 author 字段，其次是 hexo 配置中 author 值
+    # Author, based on `author` field in front-matter, if not set, based on `author` value in hexo config
+    author:
+      enable: false
+
+    # 文章日期，优先根据 front-matter 里 date 字段，其次是 md 文件日期
+    # Post date, based on `date` field in front-matter, if not set, based on create date of .md file
+    date:
+      enable: true
+      # 格式参照 ISO-8601 日期格式化
+      # ISO-8601 date format
+      # See: http://momentjs.cn/docs/#/parsing/string-format/
+      format: "LL a"
+
+    # 字数统计
+    # Word count
+    wordcount:
+      enable: true
+
+    # 估计阅读全文需要的时长
+    # Estimated reading time
+    min2read:
+      enable: true
+      # 每个字词的长度，建议：中文≈2，英文≈5，中英混合可自行调节
+      # Average word length (chars count in word), ZH ≈ 2, EN ≈ 5
+      awl: 2
+      # 每分钟阅读字数，如果大部分是技术文章可适度调低
+      # Words per minute
+      wpm: 60
+
+    # 浏览量计数
+    # Number of visits
+    views:
+      enable: false
+      # 统计数据来源
+      # Data Source
+      # Options: busuanzi | leancloud | umami
+      source: "busuanzi"
+
+  # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
+  # Update date is displayed at the beginning of the post. The default date is the update date of the md file, which can be manually specified by `updated` in front-matter (same format as date)
+  updated:
+    enable: false
+
+    # 格式参照 ISO-8601 日期格式化
+    # ISO-8601 date format
+    # See: http://momentjs.cn/docs/#/parsing/string-format/
+    date_format: "LL a"
+
+    # 是否使用相对时间表示，比如："3 天前"
+    # If true, it will be a relative time, such as: "3 days ago"
+    relative: false
+
+    # 提示标签类型
+    # Note class
+    # Options: default | primary | info | success | warning | danger | light
+    note_class: info
+
+  # 侧边栏展示当前分类下的文章
+  # Sidebar of category
+  category_bar:
+    enable: true
+
+    # 开启后，只有在文章 Front-matter 里指定 `category_bar: true` 才会展示分类，也可以通过 `category_bar: ["分类A"]` 来指定分类
+    # If true, only set `category_bar: true` in Front-matter will enable sidebar of category, also set `category_bar: ["CategoryA"]` to specify categories
+    specific: true
+
+    # 置于板块的左侧或右侧
+    # place in the board
+    # Options: left | right
+    placement: left
+
+    # 文章的排序字段，前面带减号是倒序，不带减号是正序
+    # Sort field for posts, with a minus sign is reverse order
+    # Options: date | title | or other field of front-matter
+    post_order_by: "title"
+
+    # 单个分类中折叠展示文章数的最大值，超过限制会显示 More，0 则不限制
+    # The maximum number of posts in a single category. If the limit is exceeded, it will be displayed More. If 0 no limit
+    post_limit: 0
+
+  # 侧边栏展示文章目录
+  # Table of contents (TOC) in the sidebar
+  toc:
+    enable: true
+
+    # 置于板块的左侧或右侧
+    # place in the board
+    # Options: left | right
+    placement: right
+
+    # 目录会选择这些节点作为标题
+    # TOC will select these nodes as headings
+    headingSelector: "h1,h2,h3,h4,h5,h6"
+
+    # 层级的折叠深度，0 是全部折叠，大于 0 后如果存在下级标题则默认展开
+    # Collapse depth. If 0, all headings collapsed. If greater than 0, it will be expanded by default if there are sub headings
+    collapseDepth: 0
+
+  # 版权声明，会显示在每篇文章的结尾
+  # Copyright, will be displayed at the end of each post
+  copyright:
+    enable: true
+
+    # CreativeCommons license
+    # See: https://creativecommons.org/share-your-work/cclicenses/
+    # Options: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND | ZERO
+    license: 'BY'
+
+    # 显示作者
+    author:
+      enable: true
+
+    # 显示发布日期
+    # Show post date
+    post_date:
+      enable: true
+      format: "LL"
+
+    # 显示更新日期
+    # Show update date
+    update_date:
+      enable: false
+      format: "LL"
+
+  # 文章底部上一篇下一篇功能
+  # Link to previous/next post
+  prev_next:
+    enable: true
+
+  # 文章图片标题
+  # Image caption
+  image_caption:
+    enable: true
+
+  # 文章图片可点击放大
+  # Zoom feature of images
+  image_zoom:
+    enable: true
+    # 放大后图片链接替换规则，可用于将压缩图片链接替换为原图片链接，如 ['-slim', ''] 是将链接中 `-slim` 移除；如果想使用正则请使用 `re:` 前缀，如 ['re:\\d{3,4}\\/\\d{3,4}\\/', '']
+    # The image url replacement when zooming, the feature can be used to replace the compressed image to the original image, eg: ['-slim', ''] removes `-slim` from the image url when zooming; if you want to use regular, use prefix `re:`, eg: ['re:\\d{3,4}\\/\\d{3,4}\\/','']
+    img_url_replace: ['', '']
+
+  # 脚注语法，会在文章底部生成脚注，如果 Markdown 渲染器本身支持，则建议关闭，否则可能会冲突
+  # Support footnote syntax, footnotes will be generated at the bottom of the post page. If the Markdown renderer itself supports it, please disable it, otherwise it may conflict
+  footnote:
+    enable: true
+    # 脚注的节标题，也可以在 front-matter 中通过 `footnote: <h2>Reference</h2>` 这种形式修改单独页面的 header
+    # The section title of the footnote, you can also modify the header of a single page in the form of `footnote: <h2>Reference</h2>` in front-matter
+    header: ''
+
+  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见：https://hexo.fluid-dev.com/docs/guide/##latex-数学公式
+  # Mathematical formula. If enable, you need to change the Markdown renderer, see: https://hexo.fluid-dev.com/docs/en/guide/#math
+  math:
+    # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `math: true`
+    # If you want to use math on the custom page, you need to set `math: true` in Front-matter
+    enable: true
+
+    # 开启后，只有在文章 Front-matter 里指定 `math: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
+    # If true, only set `math: true` in Front-matter will enable math, to load faster when the page does not contain math
+    specific: true
+
+    # Options: mathjax | katex
+    engine: katex
+
+  # 流程图，基于 mermaid-js，具体请见：https://hexo.fluid-dev.com/docs/guide/#mermaid-流程图
+  # Flow chart, based on mermaid-js, see: https://hexo.fluid-dev.com/docs/en/guide/#mermaid
+  mermaid:
+    # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `mermaid: true`
+    # If you want to use mermaid on the custom page, you need to set `mermaid: true` in Front-matter
+    enable: false
+
+    # 开启后，只有在文章 Front-matter 里指定 `mermaid: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
+    # If true, only set `mermaid: true` in Front-matter will enable mermaid, to load faster when the page does not contain mermaid
+    specific: false
+
+    # See: http://mermaid-js.github.io/mermaid/
+    options: { theme: 'default' }
+
+  # 评论插件
+  # Comment plugin
+  comments:
+    enable: true
+    # 指定的插件，需要同时设置对应插件的必要参数
+    # The specified plugin needs to set the necessary parameters at the same time
+    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus | discuss
+    type: waline
+
+# Giscus
+# 基于 GitHub Discussions，类似于 Utterances
+# Based on GitHub Discussions, similar to Utterances
+# See: https://giscus.app/
+giscus:
+  repo:
+  repo-id:
+  category:
+  category-id:
+  theme-light: light
+  theme-dark: dark
+  mapping: pathname
+  reactions-enabled: 1
+  emit-metadata: 0
+  input-position: top
+  lang: zh-CN
