@@ -165,3 +165,20 @@ post:
 markdown:
   plugins:
     - "@traptitech/markdown-it-katex"
+
+about:
+  icons:
+    - { class: 'iconfont icon-github-fill', link: 'https://github.com/Choose-B', tip: 'GitHub' }
+    - { class: 'iconfont icon-bilibili-fill', link: 'https://space.bilibili.com/1526890818', tip: 'Bilibili'}
+    - { class: 'iconfont icon-steam-fill', link: 'https://steamcommunity.com/id/Chose___B/', tip: 'Steam好友代码:1020224603'}
+    - { class: 'iconfont icon-wechat-fill', qrcode: './img/about/wechat friends qrcode.jpg'}
+    - { class: 'iconfont icon-qq-fill', tip: 'QQ: 3210208966'}
+
+links:
+  items:
+    - {
+      title: '博客友链',
+      intro: 'STI_lz',
+      link: 'https://sti-lz.github.io/',
+      avatar: './img/friendlink/STI-LZ.jpg'
+    }
