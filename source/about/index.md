@@ -4,7 +4,7 @@ date: 2025-06-24 19:47:24
 layout: about
 ---
 ## B 是 谁 ？  
-在这里，<span class='note note-info'>Chose_B</span>即<span class='note note-info'>B</span>一般指博主自己[^1]  
+在这里，{% label primary @Chose_B %}即{% label primary @B %}一般指博主自己[^1]  
 度过了一段~~沟槽的~~高中生活[^2]现在总算是熬过了高考
 
 ## B, 你 什 么 成 分 ？
