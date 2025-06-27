@@ -175,8 +175,8 @@ about:
 links:
   items:
     - {
-      title: '博客友链',
-      intro: 'STI_lz',
+      title: 'STI_lz',
+      intro: 'STI_lz官方网站',
       link: 'https://sti-lz.github.io/',
       avatar: '/img/friendlink/STI-LZ.jpg'
     }
