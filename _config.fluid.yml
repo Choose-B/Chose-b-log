@@ -478,11 +478,14 @@ post:
     type: giscus
 
 # _config.yml
-  math:
-    katex:
-      css: '/css/katex.min.css'
-      options:
-        throwOnError: false
+math:
+  mathjax:
+    css: 'https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css'
+    options:
+      conversion:
+        display: false
+      tex:
+      svg:
 
 # Giscus
 # 基于 GitHub Discussions，类似于 Utterances
