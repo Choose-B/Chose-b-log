@@ -454,20 +454,6 @@ post:
     # The section title of the footnote, you can also modify the header of a single page in the form of `footnote: <h2>Reference</h2>` in front-matter
     header: ''
 
-  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见：https://hexo.fluid-dev.com/docs/guide/##latex-数学公式
-  # Mathematical formula. If enable, you need to change the Markdown renderer, see: https://hexo.fluid-dev.com/docs/en/guide/#math
-  math:
-    # 开启后文章默认可用，自定义页面如需使用，需在 Front-matter 中指定 `math: true`
-    # If you want to use math on the custom page, you need to set `math: true` in Front-matter
-    enable: true
-
-    # 开启后，只有在文章 Front-matter 里指定 `math: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
-    # If true, only set `math: true` in Front-matter will enable math, to load faster when the page does not contain math
-    specific: true
-
-    # Options: mathjax | katex
-    engine: katex
-
   # 流程图，基于 mermaid-js，具体请见：https://hexo.fluid-dev.com/docs/guide/#mermaid-流程图
   # Flow chart, based on mermaid-js, see: https://hexo.fluid-dev.com/docs/en/guide/#mermaid
   mermaid:
@@ -490,6 +476,12 @@ post:
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus | discuss
     type: giscus
+
+  math:
+    katex:
+      css: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css'
+      options:
+        throwOnError: false
 
 # Giscus
 # 基于 GitHub Discussions，类似于 Utterances
