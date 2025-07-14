@@ -180,6 +180,12 @@ links:
       link: 'https://sti-lz.github.io/',
       avatar: '/img/friendlink/STI-LZ.jpg'
     }
+    - {
+      title: 'Florance',
+      intro: 'flf的博客',
+      link: 'https://Florance.eu.org',
+      avatar: '/img/friendlink/Florance.png'
+    }
 
 favicon: /img/icon.png
 
