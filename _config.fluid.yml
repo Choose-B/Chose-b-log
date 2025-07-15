@@ -127,6 +127,11 @@ dark_mode:
   default: auto
 
 index:
+  banner_img: '/img/Eyjafjalla.png'
+  # 头图黑色蒙版的不透明度，available: 0 - 1.0，1 是完全不透明
+  # Opacity of the banner mask, 1.0 is completely opaque
+  # Available: 0 - 1.0
+  banner_mask_alpha: 0.3
   slogan:
     enable: true
     text: Chose_B_log
@@ -359,7 +364,7 @@ color:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/default.png
+  banner_img: /img/Eyjafjalla.png
   banner_img_height: 70
   banner_mask_alpha: 0.3
 
