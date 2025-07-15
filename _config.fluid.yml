@@ -187,6 +187,61 @@ links:
       avatar: '/img/friendlink/Florance.png'
     }
 
+    - {
+      title: 'Desmos',
+      intro: '',
+      link: 'https://www.desmos.com/calculator?lang=zh-CN',
+      avatar: '/img/friendlink/desmos.webp'
+    }
+    - {
+      title: 'Geogebra',
+      intro: 'Geogebra国内镜像站',
+      link: 'https://www.ggb123.cn/geogebra.html',
+      avatar: '/img/friendlink/geogebra.png'
+    }
+    - {
+      title: 'MingW64(镜像站)',
+      intro: 'C++编译环境',
+      link: 'https://files.1f0.de/mingw/',
+      avatar: 'iconfont icon-code'
+    }
+    - {
+      title: 'Netlify',
+      intro: '本站所使用的站点部署服务平台',
+      link: 'https://app.netlify.com/',
+      avatar: '/img/friendlink/netlify.png'
+    }
+    - {
+      title: 'TTS语音生成',
+      intro: '',
+      link: 'https://huggingface.co/spaces/Plachta/VITS-Umamusume-voice-synthesizer',
+      avatar: '/img/friendlink/TTS.svg'
+    }
+    - {
+      title: 'LookAE',
+      intro: 'AE插件(绿化)',
+      link: 'https://www.lookae.com/',
+      avatar: '/img/friendlink/lookae.png'
+    }
+  # 当成员头像加载失败时，替换为指定图片
+  # When the member avatar fails to load, replace the specified image
+  onerror_avatar: /img/error.png
+
+  # 友链下方自定义区域，支持 HTML，可插入例如申请友链的文字
+  # Custom content at the bottom of the links
+  custom:
+    enable: false
+    content: 
+
+  # 评论插件
+  # Comment plugin
+  comments:
+    enable: true
+    # 指定的插件，需要同时设置对应插件的必要参数
+    # The specified plugin needs to set the necessary parameters at the same time
+    # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus | discuss
+    type: giscus
+
 favicon: /img/icon.png
 
 apple_touch_icon: /img/icon.png
