@@ -12,9 +12,9 @@ B的成分并不算多，如有同好欢迎交流
 |----|----|----|
 |[DDraceNetwork](https://ddnet.org/players/B-32--32--32--46-/)|B   .|个人游戏时长最长(600h+)|
 |[Arknights](https://ak.hypergryph.com/#index)|B服177713941[^3]|Eyjafjalla真可爱吧|
-|为美好的世界献上祝福！|\|EXPLOSION|
-|[BlackMyth](https://store.steampowered.com/app/2358720/_/)|\|是我手残了|
-|[DeadCell](https://store.steampowered.com/app/588650/Dead_Cells/)|\|现在淡坑了awa|
+|为美好的世界献上祝福！|/|EXPLOSION|
+|[BlackMyth](https://store.steampowered.com/app/2358720/_/)|/|是我手残了|
+|[DeadCell](https://store.steampowered.com/app/588650/Dead_Cells/)|/|现在淡坑了awa|
 
 ## 时间线
 2024-01-29  
@@ -22,13 +22,13 @@ B的成分并不算多，如有同好欢迎交流
 ---
 2024-02-07  
 DDnet 1000 分 祭  
-![1000score](/source/img/about/1000score.png)  
+![1000score](/img/about/1000score.png)  
 ---
 2025-06-25  
 更换到第二版博客
 ---
 
-
+## 注释
 [^1]: 这别称出自我初中同学为我起的谐音绰号~~你不觉得只在自己的姓名那空单写一个字母很舒爽吗?~~  
 
 [^2]: 我一般在网上以`卢关中学`来指代。这~~侮辱性的~~别号同样是谐音梗
