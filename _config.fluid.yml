@@ -186,6 +186,12 @@ links:
       link: 'https://Florance.eu.org',
       avatar: '/img/friendlink/Florance.png'
     }
+    - {
+      title: 'Codeboy',
+      intro: "Codeboy's blog",
+      link: 'https://www.codeboy.site/',
+      avatar: 'https://www.codeboy.site/web-app-manifest-512x512.png'
+    }
 
     - {
       title: 'Desmos',
