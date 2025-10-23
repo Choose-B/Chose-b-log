@@ -13,7 +13,8 @@ category: 笔记
 实不相瞒，时不时刷出一个人来问我怎么学c / 怎么装vscode / vscode怎么报错 真的非常...  
 ~~而且装过vscode的人都知道一开始用vscode有多麻烦~~  
 总之B不想隔空喊话教操作了，嗯  
----
+{% endnote %}  
+{% note primary %}
 **本文会介绍啥呢**  
 1. 必要工具的安装
    * Visual Studio Code
@@ -125,7 +126,8 @@ Keil5的工程文件不能直接打开，但是借助插件`Keil Assisant`就可
 
 语法知识请左转[菜鸟教程](https://www.runoob.com/)，菜鸟教程足够详细且易懂了  
 练习使用请右转[洛谷](https://luogu.com.cn/),为信息学竞赛服务的`OJ(Online Judge)平台`,解决你的问题差不多是*高射炮打蚊子——你就说是不是能打死蚊子*  
-![注册登录后在题单处找到6组入门题单，每个题单通过3题你就会个大概了](/source/img/c/luogu.png)  
+![注册登录后在题单处找到6组入门题单，每个题单通过3题你就会个大概了](/img/c/luogu.png)  
 
----END---
 ---
+END
+
