@@ -682,7 +682,7 @@ digital_out pne ( Brain.ThreeWirePort.A );
 ## 引入
 PID即：`Proportional`（比例）、`Integral`（积分）、`Differential`（微分）的缩写。顾名思义，PID控制算法是结合比例、积分和微分三种环节于一体的控制算法  
 PID控制的实质就是根据输入的偏差值，按照比例、积分、微分的函数关系进行运算，运算结果用以控制输出  
-![PID算法图](https://baike.baidu.com/pic/PID%E7%AE%97%E6%B3%95/4660106/0/8435e5dde71190ef66feccacc11b9d16fdfa60bf?fr=lemma&fromModule=lemma_content-image)
+![PID算法图](/img/RM-Note/2-4-1.webp)
 ### 偏差
 `偏差`即**预定目标**和**当前状态**之间的差值  
 我们设 预定值`goal`是我们希望系统平衡时传感器的返回值  
