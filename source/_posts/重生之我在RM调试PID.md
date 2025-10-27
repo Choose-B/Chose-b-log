@@ -84,14 +84,9 @@ time_last = time_now;
 此时就有必要限制积分算法的输出  
 如果{% mathjax %}I{% endmathjax %}超出了某一预定的范围{% mathjax %}[-I_{max},I_{max}]{% endmathjax %},可以对I的大小进行限制
 ```cpp
-void I_limit(float& I,float I_max){
-    if (I>I_max){
-        I = I_max;
-    }
-    else if (I<-I_max){
-        I = -I_max;
-    }
-    return;
+//积分限幅
+if ( fabs(pid->i) > pid->i_limit ){
+   pid->i = pid->i > 0 ? pid->i_limit : -pid->i_limit;
 }
 ```
 
@@ -346,6 +341,10 @@ float PID_Calc(PID* pid, float measure) {
 
 
 ## 调试参数
+
+### VOFA+ 上位机  
+
+[VOFA+](https://www.vofa.plus/)是一个
 
 ---更新中---
 ---
