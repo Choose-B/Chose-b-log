@@ -15,7 +15,7 @@ B的成分并不算多，如有同好欢迎交流
 |为美好的世界献上祝福！|/|EXPLOSION|
 |[BlackMyth](https://store.steampowered.com/app/2358720/_/)|/|是我手残了|
 |[DeadCell](https://store.steampowered.com/app/588650/Dead_Cells/)|/|现在淡坑了awa|
-
+|[Celeste](https://store.steampowered.com/app/504230/Celeste/)|/|原版游戏全成就,酱一酱二已过心门|
 
 ## 时间线
 2024-01-29  
