@@ -15,7 +15,7 @@
   "dependencies": {
     "@traptitech/markdown-it-katex": "^3.6.0",
     "gitalk": "^1.8.0",
-    "hexo": "^8.0.0",
+    "hexo": "^8.1.1",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-index": "^4.0.0",
