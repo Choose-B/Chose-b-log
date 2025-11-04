@@ -403,7 +403,7 @@ extern uint8_t Usart5_TxBuffer_Vofa[128] __attribute__((at(0x24020200))); // VOF
 #include <stdarg.h>
 #include <stdio.h>
 
-uint8_t Usart5_TxBuffer_Vofa[128]; // __attribute__((at()))
+uint8_t Usart5_TxBuffer_Vofa[128]; // __attribute__((at(0x24020200)))
 // 如果遇到DMA不能收发的问题，可以尝试在这里加上 __attribute__((at(0x24020200)))
 // 这一段的意思是强制让这个数组的首地址为0x24020200
 // 原理是 DMA 收发时只能访问位于地址0x24020000之后的数据
@@ -443,9 +443,9 @@ UsartDmaPrintf(&huart5,"%d, %d\r\n",motor_chassis[1].speed_rpm,motor_speed_pid.t
 #### STEP.1 从PD开始调节
 禁用I算法和D算法(就是让`k_i`和`k_d`等于0)  
 `k_p`从一个较小的值开始调试(比如k_p = 0.4)  
-![k_p=0.4;k_i=0;k_d=0](/source/img/RM-Note/4-2.png)  
+![k_p=0.4;k_i=0;k_d=0](/img/RM-Note/4-2.png)  
 然后逐步提高k_p的值，直到接近恰好没有发生过调的临界点
-![k_p=0.75;k_i=0;k_d=0](/source/img/RM-Note/4-3.png)  
+![k_p=0.75;k_i=0;k_d=0](/img/RM-Note/4-3.png)  
 如果希望更快响应，可以让k_p更大一点，发生轻微过调后，加入d算法  
 由于本实验不是`非稳定平衡系统`,所以D算法不是必须的  
 {% fold info @稳定平衡，恒平衡和非稳定平衡 %}
@@ -463,16 +463,16 @@ UsartDmaPrintf(&huart5,"%d, %d\r\n",motor_chassis[1].speed_rpm,motor_speed_pid.t
 {% endfold %}
 #### STEP.2 加入I控制，消除静差
 完成上一步的调节后，逐步增加`k_i`的值，提高I算法控制的权重  
-![k_p=0.75;k_i=0.4;k_d=0](/source/img/RM-Note/4-4.png)  
+![k_p=0.75;k_i=0.4;k_d=0](/img/RM-Note/4-4.png)  
 可见加入I算法后静差几乎消失，被控量曲线能够较好地贴合目标曲线  
 `k_i`应该略小于恰好不发生过调的临界位置，过小会导致消除静差的过程过慢  
 下面是发生了过调的反例  
-![k_p=0.75;k_i=0.6;k_d=0](/source/img/RM-Note/4-5.png)  
+![k_p=0.75;k_i=0.6;k_d=0](/img/RM-Note/4-5.png)  
 
 #### STEP.3 测试PID控制的跟随能力
 实际使用时`target`值很少会有不改变的情况  
 在控制过程中频繁大幅度地改变`target`值，来观察曲线的跟随能力  
-![突然大幅度改变target](/source/img/RM-Note/4-6.png)
+![突然大幅度改变target](/img/RM-Note/4-6.png)
 
 ---END---
 ---
@@ -481,142 +481,4 @@ UsartDmaPrintf(&huart5,"%d, %d\r\n",motor_chassis[1].speed_rpm,motor_speed_pid.t
 [【中科大RM电控合集】PID接口与电机闭环控制编程](https://www.bilibili.com/video/BV17m4y1L7E5),TrojanGeneric,BV17m4y1L7E5  
 [学会PID-基于板球平衡系统-初中基础就能听懂的简单讲](https://www.bilibili.com/video/BV1xL4y147ea),程欢欢的智能控制集,BV1xL4y147ea  
 [图文详解PID调参&积分分离PID控制算法](https://blog.csdn.net/m0_46577050/article/details/136354116),宁静致远2021  
-{% fold info @CUBOT电控培训文档 %}
-# 第四次培训
-
-## 匿名上位机 / VOFA+上位机的添加
-
-### 下载
-
-- 匿名官网下载：[匿名产品资料:资料下载链接汇总-匿名科创](https://www.anotc.com/wiki/%E5%8C%BF%E5%90%8D%E4%BA%A7%E5%93%81%E8%B5%84%E6%96%99/%E8%B5%84%E6%96%99%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5%E6%B1%87%E6%80%BB)
-- vofa+官网下载：[代码配酒，bug没有-VOFA+](https://www.vofa.plus/)
-  
-### 代码添加
-
-- 创建头文件并添加：
-
-```c
-    #ifndef _ANO_VOFA_H_
-    #define _ANO_VOFA_H_
-
-    #include "stm32h7xx_hal.h"
-    // #include "cmsis_os.h"
-    // #include "driver_usart.h"
-    #include "usart.h"
-
-    /*-------------------------------匿名上位机---------------------------------*/
-    #define BYTE0(dwTemp) (*(char *)(&dwTemp))
-    #define BYTE1(dwTemp) (*((char *)(&dwTemp) + 1))
-    #define BYTE2(dwTemp) (*((char *)(&dwTemp) + 2))
-    #define BYTE3(dwTemp) (*((char *)(&dwTemp) + 3))
-
-    void ANO_Send_Up_Computer(UART_HandleTypeDef *uartx,
-                              int16_t user1, int16_t user2, int16_t user3, int16_t user4, int16_t user5, int16_t user6);
-    void UsartDmaPrintf(UART_HandleTypeDef *uartx, const char *format, ...);
-    // uint8_t vofa_Callback(uint8_t *recBuffer, uint16_t len);
-    #ifdef _CMSIS_OS_H // 使用cmsis_os.h的代码的串口结构体类型是UART_RxBuffer_t，没有用RTOS的是老版代码，为了兼容性，添加此宏定义
-    extern UART_RxBuffer_t uart5_buffer;
-    #else // 使用UART_RxBuffer则将#include "cmsis_os.h"注释掉
-    // extern UART_RxBuffer uart5_buffer;
-    #endif
-    extern uint8_t Usart5_TxBuffer_ANO[20] __attribute__((at(0x24020000)));   // 匿名上位机
-    extern uint8_t Usart5_TxBuffer_Vofa[128] __attribute__((at(0x24020200))); // VOFA+
-
-    #endif
-
-```
-
-- 创建源文件并添加：
-
-```c
-    #include "ano_vofa.h"
-    #include <stdarg.h>
-    #include <stdio.h>
-    uint8_t Usart5_TxBuffer_ANO[20];
-    uint8_t Usart5_TxBuffer_Vofa[128];
-
-    /*-------------------------------匿名上位机---------------------------------*/
-    void ANO_Send_Up_Computer(UART_HandleTypeDef *uartx, int16_t user1, int16_t user2, int16_t user3, int16_t user4, int16_t user5, int16_t user6)
-    {
-        uint8_t _cnt                = 0;
-        Usart5_TxBuffer_ANO[_cnt++] = 0xAA;
-        Usart5_TxBuffer_ANO[_cnt++] = 0xFF;
-        Usart5_TxBuffer_ANO[_cnt++] = 0xF1;
-        Usart5_TxBuffer_ANO[_cnt++] = 12;
-
-        Usart5_TxBuffer_ANO[_cnt++] = BYTE0(user1);
-        Usart5_TxBuffer_ANO[_cnt++] = BYTE1(user1);
-
-        Usart5_TxBuffer_ANO[_cnt++] = BYTE0(user2);
-        Usart5_TxBuffer_ANO[_cnt++] = BYTE1(user2);
-
-        Usart5_TxBuffer_ANO[_cnt++] = BYTE0(user3);
-        Usart5_TxBuffer_ANO[_cnt++] = BYTE1(user3);
-
-        Usart5_TxBuffer_ANO[_cnt++] = BYTE0(user4);
-        Usart5_TxBuffer_ANO[_cnt++] = BYTE1(user4);
-
-        Usart5_TxBuffer_ANO[_cnt++] = BYTE0(user5);
-        Usart5_TxBuffer_ANO[_cnt++] = BYTE1(user5);
-
-        Usart5_TxBuffer_ANO[_cnt++] = BYTE0(user6);
-        Usart5_TxBuffer_ANO[_cnt++] = BYTE1(user6);
-
-        uint8_t sc = 0;
-        uint8_t ac = 0;
-
-        for (uint8_t i = 0; i < (Usart5_TxBuffer_ANO[3] + 4); i++) {
-            sc += Usart5_TxBuffer_ANO[i];
-            ac += sc;
-        }
-        Usart5_TxBuffer_ANO[_cnt++] = sc;
-        Usart5_TxBuffer_ANO[_cnt++] = ac;
-
-        HAL_UART_Transmit_DMA(uartx, Usart5_TxBuffer_ANO, _cnt);
-    }
-    /*------------------------------- VOFA+ ---------------------------------*/
-    void UsartDmaPrintf(UART_HandleTypeDef *uartx, const char*format, ...)
-    {
-        uint16_t len;
-        va_list args;
-        va_start(args, format);
-        len = vsnprintf((char *)Usart5_TxBuffer_Vofa, sizeof(Usart5_TxBuffer_Vofa) + 1, (char*)format, args);
-        va_end(args);
-        HAL_UART_Transmit_DMA(uartx, Usart5_TxBuffer_Vofa, len);
-    }
-
-```
-
-## PID算法
-
-- PID算法公式：
-  - 连续：
-
-    $$
-    u(t)=K_p e(t)+K_i \int_{0}^{t} e(t)dt+K_d \frac{de(t)}{dt}
-    $$
-
-  - 离散：
-
-    \[  
-    u(k) = K_p e(k) + K_i \sum_{j=0}^{k} e(j) + K_d [e(k) - e(k-1)]  
-    \]
-
-- $e(t)$：误差 = 设定值 - 实际值
-- $K_p$：比例增益
-- $K_i$：积分增益
-- $K_d$：微分增益
-- $u(t)$：控制量
-
-- PID算法的特点：
-  - 快速响应：当误差积分到一定程度时，积分增益将起到稳定作用，使得输出值快速响应。
-  - 稳定性：当误差积分到一定程度时，积分增益将起到稳定作用，使得输出值稳定。
-  - 阻尼作用：当误差积分到一定程度时，积分增益将起到阻尼作用，使得输出值减小。
-  - 输出限制：当输出值超过限制时，输出值将被限制。
-- 代码实现(**需要自己动手写代码，大体就是下面四个步骤**)：
-  - 定义PID结构体：
-  - 初始化PID结构体：
-  - PID算法：
-  - 输出限制：
-  
-{% endfold %}  
+[CUBOT电控培训文档](/Document/第四次培训.md)
