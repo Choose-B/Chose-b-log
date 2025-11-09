@@ -5,7 +5,7 @@ tag:
   - PID
 index_img: /img/RM-logo.png
 mathjax: true
-excerpt: '我重生了，上一世我在VEX被PID杀的片甲不留。这一世，我要在RoboMaster夺回我的一切!(怒)'
+excerpt: 'RM笔记4-1: 我重生了，上一世我在VEX被PID杀的片甲不留。这一世，我要在RoboMaster夺回我的一切!(怒)'
 date: 2025-11-4 09:56:13
 category: RoboMaster
 ---
