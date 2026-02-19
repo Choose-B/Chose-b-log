@@ -222,18 +222,6 @@ links:
       link: 'https://app.netlify.com/',
       avatar: '/img/friendlink/netlify.png'
     }
-    - {
-      title: 'TTS语音生成',
-      intro: '',
-      link: 'https://huggingface.co/spaces/Plachta/VITS-Umamusume-voice-synthesizer',
-      avatar: '/img/friendlink/TTS.svg'
-    }
-    - {
-      title: 'LookAE',
-      intro: 'AE插件(绿化)',
-      link: 'https://www.lookae.com/',
-      avatar: '/img/friendlink/lookae.png'
-    }
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
   onerror_avatar: /img/error.png
@@ -497,7 +485,7 @@ post:
     # 显示更新日期
     # Show update date
     update_date:
-      enable: false
+      enable: true
       format: "LL"
 
   # 文章底部上一篇下一篇功能
