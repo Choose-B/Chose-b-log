@@ -2,7 +2,7 @@
 title: 「新手向」听说你也要学C/C++?
 tag:
   - C/C++
-index_img: 
+index_img: /img/c/error.avif
 mathjax: false
 excerpt: 'B试图用一个链接来打发走所有来问B怎么学C/C++的人'
 date: 2025-10-23 15:08:06
@@ -94,11 +94,10 @@ VScode全称`Visual Studio Code`,是目前世界上最好用的IDE工具之一
 ![](/img/c/VScode-4.png)  
 能运行Hello, World就能运行别的  
 
-{% note warning %}
-**VScode给头文件报错的自觉看过来**  
+{% fold warning @VScode给头文件报错的自觉看过来 %}
 绝对是你没有好好安装`MinGW64`！！！(恼)  
 翻回去自己好好看看哪一步有问题的！！！
-{% endnote %}   
+{% endfold %}   
 
 {% fold info @RoboMaster电控组的同学看过来 %}
 Keil5的工程文件不能直接打开，但是借助插件`Keil Assisant`就可以  
