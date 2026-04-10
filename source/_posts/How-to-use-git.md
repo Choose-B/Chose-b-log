@@ -2,7 +2,7 @@
 title: 分布式版本管理Git的简易介绍
 tag:
   - git
-index_img: /img/Eyjafjalla.avif
+index_img: /img/git/gitlogo.png
 mathjax: false
 excerpt: '汇集分布式管理软件git的基本概念和常用操作'
 date: 2026-04-10 16:13:13
