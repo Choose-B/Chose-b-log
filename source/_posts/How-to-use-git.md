@@ -291,6 +291,21 @@ git pull origin main
 ### Case1 新建git仓库
 点击*初始化仓库*按钮  
 第一次commit后点击*发布branch*按钮  
+#### 强制远程推送
+{% note danger %}
+**该操作将覆写目标远程仓库。只有你知道你在干什么的时候才进行该操作**  
+当远程仓库中的代码版本与你的代码有较大出入且当前只有你在开发该项目时，要进行远程推送，你可能需要考虑**强制远程推送**  
+在`git bash`中执行命令
+```bash
+# 将本地分支强制推送到远程覆盖历史
+# 覆盖远程分支历史
+git push --force origin <branchname>
+# 更安全的方式，仅当远程未被他人更新时才覆盖
+git push --force-with-lease origin <branchname>
+```
+**强制远程推送**将导致原有远程仓库中的代码和提交历史全部丢失，因此请谨慎操作
+{% endnote %}  
+
 ### Case2 克隆已有仓库
 1. **Fork你要参与的远程仓库到自己Github账户**
 2. 克隆你自己账户上的远程仓库
@@ -317,6 +332,82 @@ git checkout -b dev-xxx
 {% note warning %}
 不要把“格式化全项目”与“功能改动”混在同一个 commit 里，否则会显著增加审查难度。
 {% endnote %}
+
+### 回退历史版本
+git提供了三种回退历史版本的方式  
+#### 签出Checkout
+`checkout` 可以把你的工作目录切换到某个历史提交（或某个分支）。  
+当你 checkout 到一个提交哈希时，通常会进入 **detached HEAD** 状态：你可以查看和测试历史代码，但不应该直接在这个状态长期开发。  
+
+```bash
+# 临时切到某次历史提交（只读查看很常见）
+git checkout <commit-hash>
+# 回到当前开发分支
+git checkout main
+```
+
+适用场景：
+1. 快速验证“某次提交时程序是否正常”
+2. 对比历史版本行为
+3. 从历史提交拉出新分支继续开发
+
+```bash
+# 从历史提交创建新分支继续开发
+git checkout -b hotfix-from-old <commit-hash>
+```
+
+#### 重置Reset
+`reset` 会移动当前分支指针（HEAD）到目标提交，可同时影响暂存区和工作区。  
+它适合“本地还没推送或你确定可以改写历史”的场景。  
+
+三种常用模式：
+```bash
+# 仅移动 HEAD，保留暂存区和工作区改动
+git reset --soft <commit-hash>
+
+# 默认模式：移动 HEAD，并重置暂存区；工作区改动保留
+git reset --mixed <commit-hash>
+# 等价写法
+git reset <commit-hash>
+
+# 移动 HEAD，并重置暂存区和工作区（危险）
+git reset --hard <commit-hash>
+```
+
+理解方式：
+1. `--soft`：撤销 commit，但保留“已暂存”状态
+2. `--mixed`：撤销 commit，也取消暂存，但代码还在文件里
+3. `--hard`：连文件改动一起丢弃
+
+{% note danger %}
+`git reset --hard` 会直接丢失未提交改动。执行前建议先确认 `git status`，必要时先 `git stash` 备份。
+{% endnote %}
+
+#### 还原Revert
+`revert` 不会改写历史，而是“新建一个反向提交”来抵消指定提交的改动。  
+这也是协作中更推荐的回退方式，尤其是已经 push 到远程后的提交。  
+
+常用命令：
+```bash
+# 还原某一次提交（会产生一个新的 commit）
+git revert <commit-hash>
+
+# 还原最近一次提交
+git revert HEAD
+
+# 一次还原一段提交（不自动提交，便于检查）
+git revert --no-commit <old-hash>^..<new-hash>
+git commit -m "revert: 回滚某功能改动"
+```
+
+适用场景：
+1. 已推送到远程后发现某次提交有问题
+2. 不希望破坏已有提交历史
+3. 需要可追踪地“撤回某功能”
+#### 图形化操作
+利用`git graph`插件，我们能够快捷地完成上面三种操作  
+进入`git graph`界面，对我们想要回退的提交右键，能够看到上述的三种操作。  
+![](/img/git/git-gitgraph.png)  
 
 ## 远程推送
 本地 commit 完成后，需要把分支推送到 GitHub，方便备份和协作。  
