@@ -312,6 +312,109 @@ git push --force-with-lease origin <branchname>
    ```bash
    git clone <URL>
    ```
+
+### gitignore
+
+`.gitignore`是一个特殊的文件，用来告诉 Git：**哪些文件不应被纳入版本控制**。  
+典型场景包括：
+1. 构建产物（如 `build/`、`dist/`）
+2. 临时文件和日志（如 `*.log`）
+3. 本地配置和敏感信息（如 `.env`、密钥文件）
+4. IDE 配置缓存（如 `.vscode/` 中的本地化配置）
+
+常见写法示例：
+```gitignore
+# ==============================================================================
+# 编译生成的文件 (Build Output)
+# ==============================================================================
+# 忽略 CMake 和 Make 的构建目录
+build/Debug/*
+build/*
+Debug/*
+
+# 具体的编译中间文件 (Object files, dependency files)
+*.o
+*.obj
+*.ko
+*.d
+*.su
+*.gch
+*.pch
+
+# 链接器输出与可执行文件 (Linker output & Executables)
+*.elf
+*.hex
+*.bin
+*.map
+*.ilk
+*.exp
+*.lib
+*.a
+*.la
+*.lo
+*.dll
+*.so
+*.so.*
+*.dylib
+*.exe
+*.out
+*.app
+
+# 调试文件 (Debug files)
+*.dSYM/
+*.idb
+*.pdb
+*.dwo
+
+# ==============================================================================
+# 个人配置文件与IDE设置 (Personal Configs & IDEs)
+# ==============================================================================
+# STM32CubeMX / CubeIDE生成的工程文件 (通常不需要上传，因为有 .ioc 文件)
+.mxproject
+.project
+.cproject
+
+# CMake 缓存与临时文件 (如果在根目录运行了 cmake)
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+# 但是要保留 CMakeLists.txt 和 cmake 目录下的脚本
+!CMakeLists.txt
+!cmake/
+
+# ==============================================================================
+# 操作系统生成的文件 (OS Files)
+# ==============================================================================
+.DS_Store
+Thumbs.db
+```
+
+规则小结：
+1. `#` 开头是注释
+2. `*.log` 表示忽略所有 `.log` 文件
+3. `dir/` 表示忽略整个目录
+4. `!xxx` 表示“取消忽略”，例如你可以忽略整个目录后单独保留一个模板文件
+
+```gitignore
+# 忽略 config 目录下所有文件
+config/*
+# 但保留示例配置
+!config/example.yml
+```
+
+建议做法：在仓库初始化早期就创建好 `.gitignore`，避免把无关文件提交进历史。  
+如果某文件已经被 Git 跟踪，后续即使写进 `.gitignore` 也不会自动失效，需要先取消跟踪：
+
+```bash
+# 从版本控制中移除，但保留本地文件
+git rm --cached <file-or-dir>
+```
+
+{% note info %}
+`.gitignore` 只能影响“未被跟踪”的文件。已经提交过的文件，需先 `git rm --cached` 再提交一次，规则才会生效。
+{% endnote %}
+
 ## 本地改动
 推荐在功能分支上进行所有改动，不要直接在 `main` 上开发。  
 
