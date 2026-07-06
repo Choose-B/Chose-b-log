@@ -423,7 +423,7 @@ a_{n1} & a_{n2} & \cdots & a_{nn}-\lambda
 
 ### 向量内积
 
-{% mathjax %}Define:{% endmathjax %} 在 {% mathjax %}n{% endmathjax %} 维实向量空间 {% mathjax %}\mathbb{R}^n{% endmathjax %} 中定义**内积**：
+{% mathjax %}Define:{% endmathjax %} 在 {% mathjax %}n{% endmathjax %} 维实向量空间 {% mathjax %}\mathbb{R}^n{% endmathjax %} 中定义 **内积** ：
 
 {% mathjax %}
 \left\langle \mathbf{\alpha}, \mathbf{\beta} \right\rangle = \alpha_1\beta_1 + \alpha_2\beta_2 + \cdots + \alpha_n\beta_n = \mathbf{\alpha}^T\mathbf{\beta}
@@ -484,7 +484,7 @@ a_{n1} & a_{n2} & \cdots & a_{nn}-\lambda
 {% endmathjax %}<br>
 ### 正交矩阵
 
-{% mathjax %}Define:{% endmathjax %} 若 {% mathjax %}n{% endmathjax %} 阶实矩阵 {% mathjax %}\mathbf{Q}{% endmathjax %} 满足 {% mathjax %}\mathbf{Q}^T\mathbf{Q} = \mathbf{E}{% endmathjax %}（即 {% mathjax %}\mathbf{Q}^{-1} = \mathbf{Q}^T{% endmathjax %}），则称 {% mathjax %}\mathbf{Q}{% endmathjax %} 为**正交矩阵**。
+{% mathjax %}Define:{% endmathjax %} 若 {% mathjax %}n{% endmathjax %} 阶实矩阵 {% mathjax %}\mathbf{Q}{% endmathjax %} 满足 {% mathjax %}\mathbf{Q}^T\mathbf{Q} = \mathbf{E}{% endmathjax %}（即 {% mathjax %}\mathbf{Q}^{-1} = \mathbf{Q}^T{% endmathjax %}），则称 {% mathjax %}\mathbf{Q}{% endmathjax %} 为 **正交矩阵**  
 
 **性质：**
 
@@ -540,12 +540,14 @@ f(x_1,x_2,\dots,x_n) = \sum_{i=1}^n \sum_{j=1}^n a_{ij} x_i x_j = \mathbf{x}^T\m
 
 ### 矩阵的合同
 
-{% mathjax %}Define:{% endmathjax %} 对于 {% mathjax %}n{% endmathjax %} 阶方阵 {% mathjax %}\mathbf{A},\mathbf{B}{% endmathjax %}，若存在可逆矩阵 {% mathjax %}\mathbf{C}{% endmathjax %} 使 {% mathjax %}\mathbf{B} = \mathbf{C}^T\mathbf{AC}{% endmathjax %}，则称 {% mathjax %}\mathbf{A}{% endmathjax %} 与 {% mathjax %}\mathbf{B}{% endmathjax %} **合同**。
+{% mathjax %}Define:{% endmathjax %} 对于 {% mathjax %}n{% endmathjax %} 阶方阵 {% mathjax %}\mathbf{A},\mathbf{B}{% endmathjax %}，若存在可逆矩阵 {% mathjax %}\mathbf{C}{% endmathjax %} 使 {% mathjax %}\mathbf{B} = \mathbf{C}^T\mathbf{AC}{% endmathjax %}，则称 {% mathjax %}\mathbf{A}{% endmathjax %} 与 {% mathjax %}\mathbf{B}{% endmathjax %}  **合同**  
 
 **性质：**
 - 合同关系具有自反性、对称性、传递性
 - 合同变换保持对称性：若 {% mathjax %}\mathbf{A}{% endmathjax %} 对称，则 {% mathjax %}\mathbf{B}{% endmathjax %} 也对称
 - 合同变换不改变秩：{% mathjax %}r(\mathbf{B}) = r(\mathbf{A}){% endmathjax %}
+
+**充要条件：**正负惯性系数相同
 
 ### 用正交变换化二次型为标准形
 
@@ -717,3 +719,5 @@ a_{k1} & \cdots & a_{kk}
 \end{cases}
 {% endmathjax %}<br>
 以上均为必要条件，但非充分。例如特征值相同不能保证相似，除非两个矩阵均可对角化且特征值（含重数）完全相同。
+
+对于**可对角化**的矩阵，若特征值相同，则方阵相似
