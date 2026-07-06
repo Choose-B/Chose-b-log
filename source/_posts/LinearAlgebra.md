@@ -79,7 +79,7 @@ category: 笔记
 ### 初等矩阵
 {% mathjax %}Define:{% endmathjax %}单位矩阵只经过一次初等变换而得到的矩阵  
 {% mathjax %}
-\mathbf{E} \xrightarrow{r_i \lrarr r_j} \mathbf{E}_{ij}
+\mathbf{E} \xrightarrow{r_i \leftrightarrow r_j} \mathbf{E}_{ij}
 {% endmathjax %}<br>
 {% mathjax %}
 \mathbf{E} \xrightarrow{kr_i} \mathbf{E}_i(k)
@@ -94,7 +94,7 @@ category: 笔记
 {% mathjax %}
 当\mathbf{A}为方阵 \Rightarrow
 \begin{cases}
-  设\mathbf{A} \underset{(i \neq j)}{\xrightarrow{r_i \lrarr r_j}} \mathbf{B}, 则 \left | \mathbf{B} \right | = -\left | \mathbf{A} \right | \\
+  设\mathbf{A} \underset{(i \neq j)}{\xrightarrow{r_i \leftrightarrow r_j}} \mathbf{B}, 则 \left | \mathbf{B} \right | = -\left | \mathbf{A} \right | \\
   设\mathbf{A} \xrightarrow{r_j + kr_i} \mathbf{B}, 则 \left | \mathbf{B} \right | = \left | \mathbf{A} \right | \\
   设\mathbf{A} \underset{(k \neq 0)}{\xrightarrow{kr_i}} \mathbf{B}, 则 \left | \mathbf{B} \right | = k\left | \mathbf{A} \right | \\
 \end{cases}
