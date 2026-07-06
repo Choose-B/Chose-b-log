@@ -127,6 +127,10 @@ category: 笔记
 {% mathjax %}
 其中i,j = 1,2,...,m
 {% endmathjax %}<br>
+
+{% mathjax %}
+对于n阶矩阵\mathbf{A}, \left | k \mathbf{A}^{-1} \right | = k^n \left | \mathbf{A}^{-1} \right | = \frac{k^n}{ \left | \mathbf{A} \right | }
+{% endmathjax %}
 ### 伴随矩阵
 
 {% mathjax %}
