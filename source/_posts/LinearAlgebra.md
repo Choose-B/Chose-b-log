@@ -4,6 +4,7 @@ tag:
   - 线代
 index_img: /img/Eyjafjalla.avif
 mathjax: true
+hide: true
 excerpt: '常用线代结论笔记，以供复习考试或应用推导用'
 date: 2026-07-05 12:18:10
 category: 笔记
