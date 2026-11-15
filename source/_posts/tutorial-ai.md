@@ -302,7 +302,7 @@ Claude在**编程**和**Agent任务**上的口碑很好：它比较擅长理解�
     * [meowvps](https://meowvps.com/tools/ip-check/)
     * [IPQuality](https://github.com/xykt/IPQuality)，这个是脚本形式的IP质量检测器
 * 遵守规则类怪谈，见下图
-  [Claude规则类怪谈](/img/clau.jpg)
+  ![Claude规则类怪谈](/img/clau.jpg)
 * KYC(身份验证)
   * 不要使用身份证。用了之后账户必封
   * 中国护照是可用的
