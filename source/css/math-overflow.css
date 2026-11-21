@@ -1,0 +1,52 @@
+/*
+ * 长公式溢出处理
+ * MathJax 在构建时把公式渲染成固定宽度的 SVG，无法自动换行。
+ * 这里让超宽的公式在正文宽度内横向滚动，而不是撑出屏幕。
+ */
+
+/* 块级公式（{% mathjax '{"conversion":{"display":true}}' %}）以及 KaTeX 块级公式：纯 CSS 即可 */
+.markdown-body mjx-container[jax="SVG"][display="true"],
+.markdown-body .katex-display {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* 给上下标、根号等略微超出 SVG 边界的部分以及滚动条留出空间 */
+  padding: 0.3em 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/*
+ * 普通 {% mathjax %}（非 display 模式）是行内元素，不能统一加 overflow，
+ * 否则会破坏所有行内公式的基线对齐。只有真正超宽的公式会由
+ * /js/math-overflow.js 加上 .math-scroll 类。
+ */
+.markdown-body mjx-container[jax="SVG"].math-scroll {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: middle;
+  padding: 0.3em 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 细滚动条，减少视觉干扰 */
+.markdown-body mjx-container[jax="SVG"][display="true"],
+.markdown-body mjx-container[jax="SVG"].math-scroll,
+.markdown-body .katex-display {
+  scrollbar-width: thin;
+}
+
+.markdown-body mjx-container[jax="SVG"][display="true"]::-webkit-scrollbar,
+.markdown-body mjx-container[jax="SVG"].math-scroll::-webkit-scrollbar,
+.markdown-body .katex-display::-webkit-scrollbar {
+  height: 6px;
+}
+
+.markdown-body mjx-container[jax="SVG"][display="true"]::-webkit-scrollbar-thumb,
+.markdown-body mjx-container[jax="SVG"].math-scroll::-webkit-scrollbar-thumb,
+.markdown-body .katex-display::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.4);
+  border-radius: 3px;
+}
